@@ -1,0 +1,151 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  color:white;
+  background:black;
+  overflow:hidden;
+}
+
+/* SKY */
+#sky{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* WELCOME */
+#welcome{
+  position:fixed;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+  z-index:10;
+  transition:1s;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  width:90%;
+  max-width:350px;
+}
+
+button{
+  margin-top:15px;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  background:pink;
+  width:100%;
+}
+
+/* MOON */
+.moon{
+  position:fixed;
+  top:5%;
+  right:5%;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:white;
+  box-shadow:0 0 30px white;
+}
+
+/* STARS */
+.star{
+  position:absolute;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* MESSAGE */
+#messageBox{
+  position:fixed;
+  bottom:8%;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,0.1);
+  padding:12px 18px;
+  border-radius:20px;
+  display:none;
+  max-width:300px;
+  text-align:center;
+}
+
+/* COUNTER */
+#counter{
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,0.1);
+  padding:8px 14px;
+  border-radius:20px;
+}
+
+/* FINAL */
+#finalScreen{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+#finalContent{
+  display:none;
+  text-align:center;
+  width:90%;
+  max-width:650px;
+}
+
+#finalContent img{
+  width:80%;
+  max-width:260px;
+  border-radius:20px;
+}
+
+/* LETTER */
+#typedText{
+  margin-top:15px;
+  white-space:pre-line;
+  line-height:1.7;
+}
+
+/* CURSOR */
+#typedText::after{
+  content:"|";
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0;}
+}
+
+/* HEARTS */
+.heart{
+  position:fixed;
+  bottom:0;
+  animation:float 5s linear forwards;
+}
+
+@keyframes float{
+  to{
+    transform:translateY(-100vh);
+    opacity:0;
+  }
+}
