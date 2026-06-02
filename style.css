@@ -41,6 +41,7 @@ body{
   max-width:350px;
 }
 
+/* BUTTON */
 button{
   margin-top:15px;
   padding:12px;
@@ -106,6 +107,7 @@ button{
   flex-direction:column;
 }
 
+/* FINAL CONTENT */
 #finalContent{
   display:none;
   text-align:center;
@@ -113,17 +115,38 @@ button{
   max-width:650px;
 }
 
+/* IMAGE */
 #finalContent img{
   width:80%;
   max-width:260px;
   border-radius:20px;
 }
 
-/* LETTER */
+/* ✅ SCROLLABLE LETTER */
 #typedText{
-  margin-top:15px;
+  max-height:45vh;
+  overflow-y:auto;
+  margin-top:10px;
+  padding:0 10px;
+
   white-space:pre-line;
   line-height:1.7;
+}
+
+/* SCROLL TEXT */
+.scrollHint{
+  font-size:13px;
+  opacity:0.7;
+  margin-top:10px;
+}
+
+/* SCROLL BAR */
+#typedText::-webkit-scrollbar{
+  width:4px;
+}
+#typedText::-webkit-scrollbar-thumb{
+  background:pink;
+  border-radius:10px;
 }
 
 /* CURSOR */
@@ -149,3 +172,4 @@ button{
     opacity:0;
   }
 }
+``
