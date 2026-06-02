@@ -1,24 +1,24 @@
-const startBtn = document.getElementById("startBtn");
-const welcome = document.getElementById("welcome");
-const starsContainer = document.getElementById("stars");
-const messageBox = document.getElementById("messageBox");
-const counter = document.getElementById("counter");
-const music = document.getElementById("music");
+const startBtn=document.getElementById("startBtn");
+const welcome=document.getElementById("welcome");
+const starsContainer=document.getElementById("stars");
+const messageBox=document.getElementById("messageBox");
+const counter=document.getElementById("counter");
+const music=document.getElementById("music");
 
-let clicked = 0;
+let clicked=0;
 
-/* 🌌 SKY */
-const canvas = document.getElementById("sky");
-const ctx = canvas.getContext("2d");
+/* SKY */
+const canvas=document.getElementById("sky");
+const ctx=canvas.getContext("2d");
 
 function resize(){
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
+  canvas.width=innerWidth;
+  canvas.height=innerHeight;
 }
 resize();
-window.addEventListener("resize", resize);
+window.addEventListener("resize",resize);
 
-let sky = [];
+let sky=[];
 for(let i=0;i<120;i++){
   sky.push({
     x:Math.random()*canvas.width,
@@ -47,7 +47,7 @@ function animate(){
 animate();
 
 /* START */
-startBtn.onclick = ()=>{
+startBtn.onclick=()=>{
   welcome.style.opacity="0";
   setTimeout(()=>welcome.style.display="none",800);
 
@@ -56,7 +56,7 @@ startBtn.onclick = ()=>{
   startCounter();
 };
 
-/* ⭐ STAR MESSAGES */
+/* STAR MESSAGES */
 const messages=[
 "First chat ❤️",
 "First laugh ❤️",
@@ -90,28 +90,24 @@ function createStars(){
   }
 }
 
-/* ✅ FIXED: SLOWER + LONGER MESSAGE */
+/* ✅ FIXED MESSAGE SPEED */
 function showMessage(text){
   messageBox.innerHTML="";
   messageBox.style.display="block";
 
   let i=0;
-
   function type(){
-    if(i < text.length){
-      messageBox.innerHTML += text[i++];
-      setTimeout(type, 120); /* ✅ SLOW typing */
+    if(i<text.length){
+      messageBox.innerHTML+=text[i++];
+      setTimeout(type,100);
     }
   }
-
   type();
 
-  setTimeout(()=>{
-    messageBox.style.display="none";
-  },5000); /* ✅ stays longer */
+  setTimeout(()=>messageBox.style.display="none",4500);
 }
 
-/* 🌟 BIG STAR */
+/* BIG STAR */
 function showBigStar(){
   let s=document.createElement("div");
   s.className="star";
@@ -125,20 +121,20 @@ function showBigStar(){
   starsContainer.appendChild(s);
 }
 
-/* MONTH COUNTER */
+/* COUNTER */
 function startCounter(){
   let start=new Date("Nov 3 2024");
 
   setInterval(()=>{
     let now=new Date();
-    let months=(now.getFullYear()-start.getFullYear())*12 +
+    let months=(now.getFullYear()-start.getFullYear())*12+
                (now.getMonth()-start.getMonth());
 
     counter.innerHTML=`❤️ ${months} Months Together ❤️`;
   },1000);
 }
 
-/* 💌 YOUR FULL LONG LETTER (RESTORED ✅) */
+/* LETTER */
 const letter=`Happy 19th monthsary, babyyy ko,
 
 Hindi ko alam how will I explain this po,
@@ -149,7 +145,7 @@ But with you, babyy, I realized it’s so much more than that.
 
 You became the reason why my days feel better even when nothing special is happening.
 
-May mga days na super busy, may days na pagod, may days na nag-aaway tayo
+May mga days na super busy, may days na kalmado, may days na nag-aaway tayo
 pero kahit ganon, nandyan ka pa rin po.
 
 And honestly, that’s what matters the most to me — not perfect moments,
@@ -164,28 +160,15 @@ You chose to fix things with me instead of walking away.
 
 And that means everything to me, babyyy ko.
 
-Ngayon, 19 months na po tayo,
-and ang dami na nating pinagdaanan from bestfriends to lovers.
+Ngayon, 19 months na po tayo…
 
-Ikaw na yung person na hinahanap ko sa good news,
-sa pagod, or kahit wala lang.
+We came from bestfriends to lovers,
+and I’m thankful every day.
 
-We really came from bestfriends to lovers,
-and I’m thankful every day na nangyari yun sa atin.
-
-Babyy, I don’t promise a perfect relationship,
-pero I promise na araw-araw,
-I will keep choosing you.
-
-Good days or bad days,
-ikaw pa rin.
-
-Thank you for being my person.
 Mahal na mahal kita, babyy
-I love youuu so muchh babyy❤️
+Iloveyouusomuchhhbabyyyko❤️
 
-Happy 19th Monthsary 💖
-More months, more us, more love.`;
+Happy Monthsary 💖`;
 
 /* FINAL SCREEN */
 function startFinal(){
@@ -204,14 +187,13 @@ function startFinal(){
       loader.style.display="none";
 
       document.getElementById("finalContent").style.display="block";
-
       typeLetter();
       hearts();
     }
   },20);
 }
 
-/* ✅ FINAL TYPING */
+/* TYPING */
 function typeLetter(){
   let el=document.getElementById("typedText");
   el.innerHTML="";
@@ -219,20 +201,14 @@ function typeLetter(){
 
   function type(){
     if(i<letter.length){
-      el.innerHTML += letter[i++];
-
-      let delay=40;
-      if(letter[i]==="\n") delay=200;
-      if(letter[i]===".") delay=250;
-
-      setTimeout(type,delay);
+      el.innerHTML+=letter[i++];
+      setTimeout(type,40);
     }
   }
-
   type();
 }
 
-/* ❤️ HEARTS */
+/* HEARTS */
 function hearts(){
   setInterval(()=>{
     let h=document.createElement("div");
